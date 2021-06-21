@@ -22,24 +22,17 @@ public class FrogRiverProblem {
     private static int findTime(int[] arr, int length) {
         Set<Integer> set = new HashSet<>();
         int sumInSet = 0;
-        int max = countLeafs(length);
+        int hits = 0;
         for (int i = 0; i < arr.length; i++) {
             if (!set.contains(arr[i])) {
                 set.add(arr[i]);
                 sumInSet += arr[i];
-                if (sumInSet == max) {
+                hits++;
+                if (hits == length) {
                     return i;
                 }
             }
         }
         return -1;
-    }
-
-    private static int countLeafs(int length) {
-        int res = 0;
-        for (int i = 1; i <= length; i++) {
-            res += i;
-        }
-        return res;
     }
 }
