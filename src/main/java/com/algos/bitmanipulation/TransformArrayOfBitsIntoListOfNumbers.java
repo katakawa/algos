@@ -6,7 +6,7 @@ import java.util.List;
 public class TransformArrayOfBitsIntoListOfNumbers {
 
     public static void main(String[] args) {
-        List res = parse(new char[] {'1', '0', '1', ' ', '1', '1'});
+        List res = parse(new char[] {'1', '0', '1', ' ', '1', '1', ' ', '1'});
         System.out.println(res);
     }
 

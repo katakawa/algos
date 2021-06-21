@@ -11,9 +11,9 @@ public class IterateArray {
         int a = 0b1011001;
         System.out.println(intIntoBits(a));
         List<Integer> list = intIntoBitsSquences(a);
-        //System.out.println(list);
+        System.out.println(list);
         //System.out.println(findTheLongestSequence(a));
-        System.out.println(findTheLongestSequence(list));
+        //System.out.println(findTheLongestSequence(list));
 
 //        System.out.println(0b0001);
 //        int[] arr = {1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1};
@@ -31,8 +31,8 @@ public class IterateArray {
 
         List<Integer> list = new ArrayList<>();
 
-        for (int i = 0; i < Integer.BYTES * 8; i++) {
-            int bit = n & 1;
+        for (int i = n; i != 0; i /= 2) {
+            int bit = n % 2;
             list.add(bit);
             n >>>= 1;
         }
