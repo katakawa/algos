@@ -13,34 +13,33 @@ public class StringCompression {
     private static String compress(String str){
         StringBuilder newString = new StringBuilder();
 
-        int repeated = 0;
-        boolean newSymbol = false;
+        char currentChar = str.charAt(0);
+        int repeated = 1;
 
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
+        for (int i = 1; i < str.length(); i++) {
             if (i == str.length() - 1) {
-                if (c == str.charAt(i - 1)) {
-                    newString.append(c);
+                if (str.charAt(i) == currentChar) {
                     repeated++;
+                    newString.append(currentChar);
                     newString.append(repeated);
                 } else {
-                    newString.append(c);
-                    repeated++;
-                    newString.append(repeated);
+                    newString.append(str.charAt(i));
+                    newString.append(1);
                 }
-                continue;
+                break;
             }
 
-
-            if (c == str.charAt(i + 1)) {
+            if (str.charAt(i) == currentChar) {
                 repeated++;
-            } else {
-                newString.append(c);
-                repeated++;
+            }
+            else {
+                newString.append(currentChar);
                 newString.append(repeated);
-                repeated = 0;
+                currentChar = str.charAt(i);
+                repeated = 1;
             }
+
+
         }
 
         return newString.toString();
