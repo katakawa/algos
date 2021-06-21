@@ -65,12 +65,19 @@ public class NullifyMatrix {
     }
 
     private static void nullify(int[][] matrix, int n, int m) {
-        for (int i = 0; i < matrix[n].length; i++) {
-            matrix[n][i] = 0;
-        }
-
+//        for (int i = 0; i < matrix[n].length; i++) {
+//            matrix[n][i] = 0;
+//        }
+//
+//        for (int i = 0; i < matrix.length; i++) {
+//            matrix[i][m] = 0;
+//        }
         for (int i = 0; i < matrix.length; i++) {
-            matrix[i][m] = 0;
+            for (int j = 0; j < matrix.length; j++) {
+                if (i == n || j == m) {
+                    matrix[i][j] = 0;
+                }
+            }
         }
     }
 
