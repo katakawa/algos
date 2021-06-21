@@ -1,5 +1,7 @@
 package com.algos.leetcode;
 
+import java.util.LinkedList;
+
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse
  * order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
@@ -8,8 +10,8 @@ package com.algos.leetcode;
 public class AddTwoNums {
 
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(7);
-        ListNode node2 = new ListNode(8);
+        ListNode node1 = new ListNode(5);
+        ListNode node2 = new ListNode(1);
         ListNode node3 = new ListNode(3);
         node1.next = node2;
         node2.next = node3;
@@ -21,48 +23,32 @@ public class AddTwoNums {
         node5.next = node6;
 
         ListNode res = addTwoNumbers(node1, node4);
-        System.out.println(res);
+
+        while (res != null) {
+            System.out.print(res.val);
+            res = res.next;
+        }
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode firstNode = l1;
-        ListNode secondNode = l2;
+        ListNode res = new ListNode();
+        ListNode first = res;
+        int sum = 0;
+        boolean rem = false;
+        while (l1 != null && l2 != null) {
+            int interSum = l1.val + l2.val + (rem == false ? 0 : 1);
+            res.val = interSum % 10;
+            rem = interSum >= 10;
 
-        ListNode firstResNode = null;
-        ListNode previousNode = null;
-
-        boolean hasRem = false;
-        while (firstNode != null || secondNode != null) {
-            int valueA = firstNode != null ? firstNode.val : 0;
-            int valueB = secondNode != null ? secondNode.val : 0;
-            int res = valueA + valueB;
-            if (hasRem) {
-                res++;
-                hasRem = false;
-            }
-            int rem = res % 10;
-            if (res > 9) {
-                hasRem = true;
+            if (l1.next != null) {
+                res.next = new ListNode();
+                res = res.next;
             }
 
-            ListNode newNode = new ListNode(rem);
-            if (previousNode == null) {
-                firstResNode = newNode;
-                previousNode = newNode;
-            } else {
-                previousNode.next = newNode;
-                previousNode = newNode;
-            }
-
-            if (firstNode != null) firstNode = firstNode.next;
-            if (secondNode != null) secondNode = secondNode.next;
-
-            if (firstNode == null && secondNode == null && hasRem) {
-                previousNode.next = new ListNode(1);
-                previousNode = newNode;
-            }
+            l1 = l1.next;
+            l2 = l2.next;
         }
-        return firstResNode;
+        return first;
     }
 
 }
