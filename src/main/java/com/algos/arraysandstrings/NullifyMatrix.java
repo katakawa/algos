@@ -57,10 +57,10 @@ public class NullifyMatrix {
                     list.add(new Pair(i, j));
                 }
             }
+        }
 
-            for (Pair pair : list) {
-                nullify(matrix, pair.n, pair.m);
-            }
+        for (Pair pair : list) {
+            nullify(matrix, pair.n, pair.m);
         }
     }
 
