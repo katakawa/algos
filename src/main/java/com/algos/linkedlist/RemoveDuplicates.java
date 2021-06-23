@@ -12,7 +12,7 @@ public class RemoveDuplicates {
         LinkedListNode node3 = new LinkedListNode(2, null);
         LinkedListNode node4 = new LinkedListNode(2, null);
         LinkedListNode node5 = new LinkedListNode(2, null);
-        LinkedListNode node6 = new LinkedListNode(4, null);
+        LinkedListNode node6 = new LinkedListNode(2, null);
 
         node.next = node1;
         node1.next = node2;
