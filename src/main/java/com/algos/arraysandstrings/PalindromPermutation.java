@@ -11,6 +11,7 @@ public class PalindromPermutation {
 
     public static void main(String[] args) {
         System.out.println(isPalindrome("abb"));
+        System.out.println(isPermutationOfPalindrome("abbc"));
     }
 
     /**
@@ -41,5 +42,20 @@ public class PalindromPermutation {
         return true;
     }
 
-
+    private static boolean isPermutationOfPalindrome(String phrase) {
+        int countOdd = 0;
+        int[] table = new int[256];
+        for (char c : phrase.toCharArray()) {
+            int x = c;
+            if (x != -1) {
+            table[x]++;
+            if (table[x] % 2 == 1) {
+                countOdd++;
+            } else {
+                countOdd--;
+            }
+        }
+    }
+    return countOdd <= 1;
+    }
 }
