@@ -28,24 +28,16 @@ public class ReplaceSpaces {
     }
 
     private static String replaceSpacesUsingChars(String input) {
-
-        char[] chars = input.toCharArray();
+        char[] inputChars = input.toCharArray();
 
         int newArraySize = 0;
         int charsInInput = 0;
 
-        for (int i = chars.length - 1; i >= 0; i--) {
-            if (newArraySize == 0 && chars[i] == ' ') {
-                continue;
-            }
-            if (chars[i] == ' ') {
-                newArraySize += 3;
-            } else {
-                newArraySize++;
-            }
-
+        for (int i = inputChars.length - 1; i >= 0; i--) {
+            if (newArraySize == 0 && inputChars[i] == ' ') continue;
+            if (inputChars[i] == ' ') newArraySize += 3;
+            else newArraySize++;
             charsInInput++;
-
         }
 
         char[] replacedChars = new char[newArraySize];
