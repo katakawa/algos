@@ -47,7 +47,6 @@ public class PalindromPermutation {
         int[] table = new int[256];
         for (char c : phrase.toCharArray()) {
             int x = c;
-            if (x != -1) {
             table[x]++;
             if (table[x] % 2 == 1) {
                 countOdd++;
@@ -55,7 +54,6 @@ public class PalindromPermutation {
                 countOdd--;
             }
         }
-    }
-    return countOdd <= 1;
+        return countOdd <= 1;
     }
 }
