@@ -13,7 +13,12 @@ import java.util.Map;
 public class StringHasAllUniqueCharacters {
 
     public static void main(String[] args) {
-        System.out.println(allCharactersAreUnique("abcad"));
+        //System.out.println(allCharactersAreUnique("abcad"));
+        //System.out.println(isUniqueChars("abcad"));
+        System.out.println(1 << 1);
+        System.out.println(1 << 2);
+        System.out.println(1 << 3);
+        System.out.println(1 << 4);
     }
 
     private static boolean allCharactersAreUnique(String str) {
@@ -25,6 +30,18 @@ public class StringHasAllUniqueCharacters {
                 return false;
             }
             chars[symbol] = true;
+        }
+        return true;
+    }
+
+    private static boolean isUniqueChars(String str) {
+        int checker = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i) - 'a';
+            if ((checker & (1 << val)) > 0) {
+                return false;
+            }
+            checker |= (1 << val);
         }
         return true;
     }
