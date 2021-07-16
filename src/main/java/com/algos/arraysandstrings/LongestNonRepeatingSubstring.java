@@ -3,7 +3,7 @@ package com.algos.arraysandstrings;
 public class LongestNonRepeatingSubstring {
 
     public static void main(String[] args) {
-        String str = "ab";
+        String str = "abaacdefa";
         System.out.println("The input string is " + str);
 
         int len = longestUniqueSubsttr(str);
@@ -25,7 +25,6 @@ public class LongestNonRepeatingSubstring {
                     longestSubstring = Math.max(longestSubstring, j - i + 1);
                 }
             }
-            visited[str.charAt(i)] = false;
         }
 
         return longestSubstring;

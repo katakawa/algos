@@ -12,7 +12,6 @@ public class PassingCars {
         for (int i = arr.length - 1; i >= 0; i--) {
             suffixSum[i] = arr[i] + suffixSum[i + 1];
             if (arr[i] == 0) count += suffixSum[i];
-            if (count > 1000000000) return -1;
         }
 
         return count;
