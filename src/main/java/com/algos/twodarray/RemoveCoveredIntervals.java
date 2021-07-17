@@ -6,10 +6,10 @@ public class RemoveCoveredIntervals {
 
     public static void main(String[] args) {
         int res = removeCoveredIntervals(new int[][]{new int[]
-                {1, 4},
-                {1, 6},
-                {2, 8},
-        });
+                                                    {1, 4},
+                                                    {1, 6},
+                                                    {2, 8},
+                                            });
         System.out.println(res);
     }
 

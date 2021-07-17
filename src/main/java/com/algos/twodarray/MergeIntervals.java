@@ -12,9 +12,11 @@ public class MergeIntervals {
   }
 
   public int[][] merge(int[][] intervals) {
-    Collections.sort(Arrays.asList(intervals), new IntervalComparator());
-
     LinkedList<int[]> merged = new LinkedList<>();
+    Arrays.sort(intervals, (int[] a, int[] b) -> {
+      return Integer.compare(a[0], b[0]);
+    });
+
     for (int[] interval : intervals) {
       // if the list of merged intervals is empty or if the current
       // interval does not overlap with the previous, simply append it.
@@ -29,12 +31,5 @@ public class MergeIntervals {
     }
 
     return merged.toArray(new int[merged.size()][2]);
-  }
-
-  private class IntervalComparator implements Comparator<int[]> {
-    @Override
-    public int compare(int[] a, int[] b) {
-      return Integer.compare(a[0], b[0]);
-    }
   }
 }
