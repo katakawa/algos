@@ -1,13 +1,16 @@
 package com.algos.twodarray;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class MergeIntervals {
 
   public static void main(String[] args) {
+    List<Integer> list = new ArrayList<>();
+    list.add(2);
+    list.add(1);
+    System.out.println(list);
+    Collections.sort(list);
+    System.out.println(list);
 
   }
 
@@ -15,6 +18,7 @@ public class MergeIntervals {
     Arrays.sort(intervals, (int[] a, int[] b) -> {
       return Integer.compare(a[0], b[0]);
     });
+
     LinkedList<int[]> mergedIntervals = new LinkedList<>();
 
     for (int[] interval : intervals) {
