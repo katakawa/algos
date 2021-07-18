@@ -46,4 +46,20 @@ public class TreeNode {
         postOrderTraversal(node.rightNode);
         visit(node);
     }
+
+    //***********************************
+    // FLATTEN
+
+    TreeNode prev = null;
+
+    public void flatten(TreeNode root) {
+        if (root == null)
+            return;
+        flatten(root.rightNode);
+        flatten(root.leftNode);
+        root.rightNode = prev;
+        root.leftNode = null;
+        prev = root;
+    }
+
 }

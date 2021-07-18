@@ -3,14 +3,14 @@ package com.algos.trees;
 public class Test {
 
     public static void main(String[] args) {
-        TreeNode node1 = new TreeNode(10);
-        TreeNode node2 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(4);
-        TreeNode node4 = new TreeNode(7);
+        TreeNode node4 = new TreeNode(5);
 
-        TreeNode node5 = new TreeNode(15);
-        TreeNode node6 = new TreeNode(13);
-        TreeNode node7 = new TreeNode(17);
+        TreeNode node5 = new TreeNode(3);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
 
         node1.leftNode = node2;
         node1.rightNode = node5;
