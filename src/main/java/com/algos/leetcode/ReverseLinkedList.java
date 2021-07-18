@@ -25,21 +25,20 @@ public class ReverseLinkedList {
     /**
      * 1 -> 2 -> 3 -> 4 -> 5
      * 1 <- 2 <- 3 <- 4 <- 5
-     * @param head
+     * @param origional
      * @return
      */
-    public static LinkedListNode reverse(LinkedListNode head) {
-
-        LinkedListNode node = head;
-        LinkedListNode previous = null;
+    public static LinkedListNode reverse(LinkedListNode origional) {
+        LinkedListNode node = origional;
+        LinkedListNode newLinkedListHead = null;
         LinkedListNode reversed = null;
 
         while (node != null) {
             reversed = new LinkedListNode(node.data);
-            reversed.next = previous;
+            reversed.next = newLinkedListHead;
+            newLinkedListHead = reversed;
 
             node = node.next;
-            previous = reversed;
         }
 
         return reversed;
